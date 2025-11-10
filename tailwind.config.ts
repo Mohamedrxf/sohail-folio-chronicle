@@ -25,6 +25,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -42,6 +43,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        "accent-2": {
+          DEFAULT: "hsl(var(--accent-2))",
+          foreground: "hsl(var(--accent-2-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -53,11 +58,16 @@ export default {
       },
       backgroundImage: {
         'gradient-primary': 'var(--gradient-primary)',
+        'gradient-secondary': 'var(--gradient-secondary)',
+        'gradient-accent': 'var(--gradient-accent)',
         'gradient-subtle': 'var(--gradient-subtle)',
+        'gradient-mesh': 'var(--gradient-mesh)',
       },
       boxShadow: {
         'elegant': 'var(--shadow-elegant)',
         'card': 'var(--shadow-card)',
+        'glow': 'var(--shadow-glow)',
+        'colored': 'var(--shadow-colored)',
       },
       transitionTimingFunction: {
         'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',

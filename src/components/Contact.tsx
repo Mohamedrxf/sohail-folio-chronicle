@@ -101,9 +101,14 @@ const Contact = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    className="flex items-center gap-4 p-4 bg-card rounded-xl shadow-card border border-border hover:shadow-elegant hover:border-primary/40 transition-all duration-300 group"
+                    className="relative glass-card flex items-center gap-4 p-4 rounded-xl shadow-card border border-border hover:shadow-colored hover:border-accent/40 transition-all duration-300 group overflow-hidden"
                   >
-                    <div className="p-3 rounded-lg bg-gradient-primary group-hover:scale-110 transition-transform duration-300">
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className={`relative z-10 p-3 rounded-lg ${
+                      index === 0 ? 'bg-gradient-secondary' : 
+                      index === 1 ? 'bg-gradient-to-br from-accent-2 to-primary' : 
+                      'bg-gradient-accent'
+                    } group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-colored`}>
                       <info.icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -167,10 +172,13 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full bg-gradient-primary hover:opacity-90 transition-opacity"
+                  className="relative w-full bg-gradient-secondary hover:opacity-90 transition-all shadow-glow hover:shadow-colored hover:scale-[1.02] group"
                 >
-                  Send Message
-                  <Send className="w-5 h-5 ml-2" />
+                  <span className="relative z-10 flex items-center justify-center">
+                    Send Message
+                    <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-accent opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
                 </Button>
               </form>
             </motion.div>

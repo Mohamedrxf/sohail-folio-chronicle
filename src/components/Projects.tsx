@@ -56,12 +56,13 @@ const Projects = () => {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="group"
               >
-                <div className="relative bg-card rounded-2xl p-8 shadow-card border-2 border-border h-full transition-all duration-300 hover:shadow-elegant hover:border-primary/40 overflow-hidden">
-                  {/* Gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative glass-card rounded-2xl p-8 shadow-card border-2 border-border h-full transition-all duration-300 hover:shadow-glow hover:border-transparent overflow-hidden group-hover:scale-[1.02]">
+                  {/* Animated gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-accent-2/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute -inset-1 bg-gradient-primary opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" />
                   
                   <div className="relative z-10">
-                    <div className="w-16 h-16 rounded-xl bg-gradient-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 rounded-xl bg-gradient-primary flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-colored">
                       <project.icon className="w-8 h-8 text-white" />
                     </div>
 
@@ -84,14 +85,14 @@ const Projects = () => {
                       {project.tech.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full font-medium border border-primary/20"
+                          className="px-3 py-1 bg-gradient-to-r from-primary/10 to-accent/10 text-primary text-xs rounded-full font-medium border border-primary/30 hover:border-primary hover:shadow-colored transition-all hover:scale-105 cursor-default"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    <Button variant="outline" size="sm" className="group/btn">
+                    <Button variant="outline" size="sm" className="group/btn border-2 border-primary/40 hover:bg-gradient-primary hover:text-white hover:border-transparent">
                       View Details
                       <ExternalLink className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                     </Button>

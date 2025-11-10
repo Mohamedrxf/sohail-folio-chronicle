@@ -50,13 +50,15 @@ const Certifications = () => {
                 whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
                 className="group"
               >
-                <div className="bg-card rounded-xl p-6 shadow-card border border-border h-full transition-all duration-300 hover:shadow-elegant hover:border-primary/40">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 group-hover:scale-110 transition-transform duration-300">
+                <div className="relative glass-card rounded-xl p-6 shadow-card border border-border h-full transition-all duration-300 hover:shadow-colored hover:border-accent/40 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative z-10 flex items-start gap-4">
+                    <div className="p-3 rounded-lg bg-gradient-to-br from-accent via-accent to-orange-500 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300 shadow-colored">
                       <Award className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">
+                      <h3 className="font-bold text-lg mb-1 group-hover:gradient-text transition-colors">
                         {cert.title}
                       </h3>
                       <p className="text-muted-foreground text-sm">{cert.issuer}</p>

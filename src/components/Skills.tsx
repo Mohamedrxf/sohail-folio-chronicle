@@ -8,25 +8,25 @@ const skillsData = [
     icon: Code2,
     category: "Programming Languages",
     skills: ["Python", "Java", "C", "C++"],
-    color: "from-blue-500 to-blue-600",
+    gradient: "from-primary via-primary-glow to-accent",
   },
   {
     icon: Database,
     category: "Database Tools",
     skills: ["MySQL", "MongoDB", "Excel"],
-    color: "from-emerald-500 to-emerald-600",
+    gradient: "from-accent-2 via-primary to-accent",
   },
   {
     icon: Globe,
     category: "Web Development",
     skills: ["HTML", "CSS"],
-    color: "from-orange-500 to-orange-600",
+    gradient: "from-accent via-accent to-orange-500",
   },
   {
     icon: BarChart3,
     category: "Data Visualization & Tools",
     skills: ["Power BI", "AI-based tools"],
-    color: "from-cyan-500 to-cyan-600",
+    gradient: "from-accent-2 via-accent-2 to-primary",
   },
 ];
 
@@ -58,22 +58,26 @@ const Skills = () => {
                 whileHover={{ y: -8, transition: { duration: 0.2 } }}
                 className="group"
               >
-                <div className="bg-card rounded-xl p-6 shadow-card border border-border h-full transition-all duration-300 hover:shadow-elegant">
-                  <div className={`w-14 h-14 rounded-lg bg-gradient-to-br ${skill.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <skill.icon className="w-7 h-7 text-white" />
-                  </div>
+                <div className="relative bg-card rounded-xl p-6 shadow-card border border-border h-full transition-all duration-300 hover:shadow-glow hover:border-primary/40 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  <h3 className="font-bold text-lg mb-3">{skill.category}</h3>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {skill.skills.map((item, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-muted text-foreground text-sm rounded-full border border-border"
-                      >
-                        {item}
-                      </span>
-                    ))}
+                  <div className="relative z-10">
+                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${skill.gradient} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-colored`}>
+                      <skill.icon className="w-7 h-7 text-white" />
+                    </div>
+                    
+                    <h3 className="font-bold text-lg mb-3 group-hover:text-primary transition-colors">{skill.category}</h3>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {skill.skills.map((item, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 bg-gradient-to-r from-muted to-secondary/50 text-foreground text-sm rounded-full border border-border hover:border-primary/40 transition-all hover:scale-105 cursor-default"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>

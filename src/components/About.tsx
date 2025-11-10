@@ -21,14 +21,18 @@ const About = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-primary mx-auto mb-12 rounded-full" />
 
-          <div className="bg-card rounded-2xl shadow-card p-8 md:p-12 border border-border">
-            <p className="text-lg md:text-xl text-foreground/90 leading-relaxed text-center">
+          <div className="relative glass-card rounded-2xl shadow-elegant p-8 md:p-12 border-2 border-primary/20 hover:border-primary/40 transition-all duration-500 group overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-mesh opacity-50" />
+            <div className="absolute -inset-1 bg-gradient-primary opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500" />
+            
+            <p className="relative z-10 text-lg md:text-xl text-foreground/90 leading-relaxed text-center">
               Full Stack Developer passionate about building{" "}
-              <span className="font-semibold text-primary">dynamic</span>,{" "}
-              <span className="font-semibold text-accent">responsive</span>, and{" "}
-              <span className="font-semibold text-primary">efficient</span> web applications. 
+              <span className="font-bold gradient-text-alt">dynamic</span>,{" "}
+              <span className="font-bold text-accent-2">responsive</span>, and{" "}
+              <span className="font-bold text-primary">efficient</span> web applications. 
               Experienced in front-end and back-end development, data integration, and data visualization. 
-              Always eager to learn and explore emerging technologies to create innovative digital solutions.
+              Always eager to learn and explore emerging technologies to create{" "}
+              <span className="font-bold gradient-text">innovative digital solutions</span>.
             </p>
           </div>
         </motion.div>

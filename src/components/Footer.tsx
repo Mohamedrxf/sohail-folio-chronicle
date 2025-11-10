@@ -19,9 +19,9 @@ const Footer = () => {
         <Button
           onClick={scrollToTop}
           size="icon"
-          className="rounded-full w-12 h-12 bg-gradient-primary hover:opacity-90 shadow-elegant"
+          className="rounded-full w-12 h-12 bg-gradient-secondary hover:opacity-90 shadow-glow hover:shadow-colored hover:scale-110 transition-all"
         >
-          <ArrowUp className="w-6 h-6" />
+          <ArrowUp className="w-6 h-6 text-white" />
         </Button>
       </motion.div>
 
@@ -55,15 +55,17 @@ const Footer = () => {
               href="https://www.linkedin.com/in/mohamed-sohail-b24681307"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-background/10 hover:bg-background/20 transition-colors"
+              className="relative p-3 rounded-full bg-gradient-primary hover:shadow-glow transition-all hover:scale-110 group"
             >
-              <Linkedin className="w-5 h-5" />
+              <Linkedin className="w-5 h-5 text-white relative z-10" />
+              <div className="absolute inset-0 rounded-full bg-gradient-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
             <a
               href="mailto:mohamedsohail176@gmail.com"
-              className="p-3 rounded-full bg-background/10 hover:bg-background/20 transition-colors"
+              className="relative p-3 rounded-full bg-gradient-accent hover:shadow-colored transition-all hover:scale-110 group"
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-5 h-5 text-white relative z-10" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent-2 to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
           </motion.div>
 

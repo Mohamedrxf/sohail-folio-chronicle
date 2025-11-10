@@ -41,7 +41,7 @@ const Education = () => {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary" />
+              <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-accent to-accent-2 rounded-full" />
 
               {educationData.map((edu, index) => (
                 <motion.div
@@ -54,23 +54,25 @@ const Education = () => {
                   }`}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-8 md:left-1/2 -ml-3 w-6 h-6 rounded-full bg-gradient-primary border-4 border-background z-10" />
+                  <div className="absolute left-8 md:left-1/2 -ml-4 w-8 h-8 rounded-full bg-gradient-primary border-4 border-background z-10 shadow-glow" />
 
                   {/* Content card */}
                   <div className={`ml-20 md:ml-0 md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
-                    <div className="bg-card rounded-xl p-6 shadow-card border border-border hover:shadow-elegant transition-shadow duration-300">
-                      <div className="flex items-start gap-4">
-                        <div className="p-3 rounded-lg bg-gradient-primary">
+                    <div className="relative glass-card rounded-xl p-6 shadow-card border-2 border-border hover:shadow-glow hover:border-primary/40 transition-all duration-300 group overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent-2/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      
+                      <div className="relative z-10 flex items-start gap-4">
+                        <div className={`p-3 rounded-lg ${index % 2 === 0 ? 'bg-gradient-primary' : 'bg-gradient-to-br from-accent to-accent-2'} group-hover:scale-110 transition-transform duration-300 shadow-colored`}>
                           <edu.icon className="w-6 h-6 text-white" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-bold text-lg mb-1">{edu.degree}</h3>
+                          <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">{edu.degree}</h3>
                           <p className="text-muted-foreground text-sm mb-2">{edu.institution}</p>
                           <div className="flex flex-wrap gap-2 text-sm">
-                            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full font-medium">
+                            <span className="px-3 py-1 bg-gradient-to-r from-primary/10 to-accent/10 text-primary rounded-full font-medium border border-primary/30">
                               {edu.period}
                             </span>
-                            <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">
+                            <span className="px-3 py-1 bg-gradient-to-r from-accent/10 to-accent-2/10 text-accent rounded-full font-medium border border-accent/30">
                               {edu.grade}
                             </span>
                           </div>

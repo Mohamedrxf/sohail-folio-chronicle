@@ -9,25 +9,34 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-subtle">
+      {/* Mesh gradient background */}
+      <div className="absolute inset-0 bg-gradient-mesh" />
+      
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-primary/5"
+            className="absolute rounded-full"
             style={{
-              width: Math.random() * 300 + 50,
-              height: Math.random() * 300 + 50,
+              width: Math.random() * 400 + 100,
+              height: Math.random() * 400 + 100,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
+              background: i % 3 === 0 
+                ? 'radial-gradient(circle, hsl(262 83% 58% / 0.1) 0%, transparent 70%)'
+                : i % 3 === 1
+                ? 'radial-gradient(circle, hsl(326 78% 58% / 0.1) 0%, transparent 70%)'
+                : 'radial-gradient(circle, hsl(189 94% 50% / 0.1) 0%, transparent 70%)',
             }}
             animate={{
               y: [0, Math.random() * 100 - 50],
               x: [0, Math.random() * 100 - 50],
-              scale: [1, 1.1, 1],
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3],
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: Math.random() * 15 + 10,
               repeat: Infinity,
               repeatType: "reverse",
             }}
@@ -47,9 +56,12 @@ const Hero = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
-            className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-primary shadow-elegant flex items-center justify-center text-white text-4xl font-bold"
+            className="relative w-36 h-36 mx-auto mb-8"
           >
-            MS
+            <div className="absolute inset-0 rounded-full bg-gradient-primary shadow-glow blur-xl opacity-60 animate-pulse" />
+            <div className="relative w-full h-full rounded-full bg-gradient-primary shadow-elegant flex items-center justify-center text-white text-4xl font-bold ring-4 ring-primary/20 ring-offset-4">
+              MS
+            </div>
           </motion.div>
 
           <motion.h1
@@ -88,15 +100,16 @@ const Hero = () => {
             <Button 
               size="lg" 
               onClick={() => scrollToSection('projects')}
-              className="bg-gradient-primary hover:opacity-90 transition-opacity"
+              className="relative bg-gradient-primary hover:opacity-90 transition-all shadow-colored hover:shadow-glow hover:scale-105 group"
             >
-              View Projects
+              <span className="relative z-10">View Projects</span>
+              <div className="absolute inset-0 bg-gradient-secondary opacity-0 group-hover:opacity-100 transition-opacity rounded-lg" />
             </Button>
             <Button 
               size="lg" 
               variant="outline"
               onClick={() => scrollToSection('contact')}
-              className="border-2 hover:bg-primary/5"
+              className="border-2 border-primary hover:bg-gradient-primary hover:text-white hover:border-transparent transition-all shadow-card hover:shadow-elegant"
             >
               Contact Me
             </Button>
@@ -112,15 +125,17 @@ const Hero = () => {
               href="https://www.linkedin.com/in/mohamed-sohail-b24681307" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-secondary hover:bg-primary/10 transition-colors"
+              className="p-3 rounded-full bg-gradient-to-br from-primary to-accent hover:shadow-glow transition-all hover:scale-110 group relative"
             >
-              <Linkedin className="w-6 h-6" />
+              <Linkedin className="w-6 h-6 text-white relative z-10" />
+              <div className="absolute inset-0 rounded-full bg-gradient-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
             <a 
               href="mailto:mohamedsohail176@gmail.com"
-              className="p-3 rounded-full bg-secondary hover:bg-primary/10 transition-colors"
+              className="p-3 rounded-full bg-gradient-to-br from-accent to-accent-2 hover:shadow-colored transition-all hover:scale-110 group relative"
             >
-              <Mail className="w-6 h-6" />
+              <Mail className="w-6 h-6 text-white relative z-10" />
+              <div className="absolute inset-0 rounded-full bg-gradient-accent opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
           </motion.div>
 
